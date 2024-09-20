@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 public class ShippingCalculator implements ShippingCalculatorInterface {
 
     private ProductRepo productRepo;
-    private DeliveryTypesStrategy deliveryTypesStrategy;
 
     @Override
     public double getShippingCharge(String transportMode, List<Integer> productIds, String deliveryTypes,
@@ -39,7 +38,7 @@ public class ShippingCalculator implements ShippingCalculatorInterface {
                                                 customerLatitude, customerLongitude);
             
             // Use distance in your shipping cost calculation if needed
-            return deliveryTypesStrategy.calculateShippingCost(weight, productPrice, distance);
+            return deliveryTypeStrategy.calculateShippingCost(weight, productPrice, distance);
         
 
     }
